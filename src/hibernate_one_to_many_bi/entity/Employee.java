@@ -1,13 +1,13 @@
 package hibernate_one_to_many_bi.entity;
 
 
-import hibernate_one_to_one.entity.Detail;
+
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "employees")
-public class Employee {
+public class Employee  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +27,7 @@ public class Employee {
     public Employee() {
     }
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.DETACH,CascadeType.REFRESH, CascadeType.MERGE })
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "department_id")
     private Department department;
 

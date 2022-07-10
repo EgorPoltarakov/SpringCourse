@@ -1,7 +1,7 @@
 package hibernate_one_to_many_bi.entity;
 
 
-import org.w3c.dom.stylesheets.LinkStyle;
+;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -26,9 +26,9 @@ public class Department {
     @Column(name = "min_salary")
     private int minSalary;
 
-    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.DETACH
-            , CascadeType.REFRESH, CascadeType.MERGE }
-            , mappedBy = "department")
+    @OneToMany(cascade = CascadeType.ALL
+            , mappedBy = "department"
+            , fetch = FetchType.LAZY)
     private List<Employee> emps;
 
 
